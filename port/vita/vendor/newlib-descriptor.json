@@ -1,0 +1,10 @@
+{
+  "commit": "2e428297c0b6aefd830c5a75a7daa7e774562a42",
+  "url": "https://raw.githubusercontent.com/vitasdk/newlib/2e428297c0b6aefd830c5a75a7daa7e774562a42/newlib/libc/sys/vita/vitadescriptor.h",
+  "header_sha256": "31cabc2d0a0c9dc202b94ccf2ecf6cd33916a5eea64f296c304bf37d7bc7a5df",
+  "archive_members": {
+    "lib_a-io.o": "b00a85d9f6a2d41c6fb9fecbf8ea7f12153a8aa9b22755ed9ae3d2d1812b4f18",
+    "lib_a-syscalls.o": "7997a59e4ab61554fb19c6375ee2812f536db5c5d0d8c597ce0a6857fb6788fd"
+  },
+  "note": "Internal ABI: compile adapter with short enums; re-audit when SDK archive members change."
+}

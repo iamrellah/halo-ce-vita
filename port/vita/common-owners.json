@@ -1,0 +1,250 @@
+{
+  "scope": "Native-only tentative definitions from owning-unit declarations; no inferred byte sizes",
+  "definitions": [
+    {
+      "symbol": "ai_globals",
+      "owner": "source/ai/ai.c",
+      "declaration": "struct ai_globals_data *ai_globals;"
+    },
+    {
+      "symbol": "avoidance_rays",
+      "owner": "source/ai/actor_moving.c",
+      "declaration": "struct vector_avoidance_ray avoidance_rays[VECTOR_AVOIDANCE_NUMBER_OF_DIRECTIONS][2];"
+    },
+    {
+      "symbol": "avoidance_directions",
+      "owner": "source/ai/actor_moving.c",
+      "declaration": "real_vector3d avoidance_directions[VECTOR_AVOIDANCE_NUMBER_OF_DIRECTIONS];"
+    },
+    {
+      "symbol": "sense_rays",
+      "owner": "source/ai/actor_moving.c",
+      "declaration": "struct vector_avoidance_ray sense_rays[9];"
+    },
+    {
+      "symbol": "global_communication_table_indices",
+      "owner": "source/ai/ai_communication.c",
+      "declaration": "short global_communication_table_indices[NUMBER_OF_COMMUNICATION_TYPES];"
+    },
+    {
+      "symbol": "global_tag_instances",
+      "owner": "source/cache/cache_files.c",
+      "declaration": "struct cache_file_tag_instance *global_tag_instances;"
+    },
+    {
+      "symbol": "assertion_count",
+      "owner": "source/cache/xbox_sound_cache.c",
+      "declaration": "short assertion_count;"
+    },
+    {
+      "symbol": "debug_sound_cache",
+      "owner": "source/cache/xbox_sound_cache.c",
+      "declaration": "boolean debug_sound_cache;"
+    },
+    {
+      "symbol": "debug_sound_reference_counts",
+      "owner": "source/cache/xbox_sound_cache.c",
+      "declaration": "boolean debug_sound_reference_counts;"
+    },
+    {
+      "symbol": "game_variant_global",
+      "owner": "source/game/game.c",
+      "declaration": "struct game_variant game_variant_global;"
+    },
+    {
+      "symbol": "game_engine_globals",
+      "owner": "source/game/game_engine.c",
+      "declaration": "struct game_engine_globals game_engine_globals;"
+    },
+    {
+      "symbol": "global_stage",
+      "owner": "source/game/game_engine.c",
+      "declaration": "struct game_engine_stage global_stage;"
+    },
+    {
+      "symbol": "timeout_for_endgame_sound",
+      "owner": "source/game/game_engine.c",
+      "declaration": "long timeout_for_endgame_sound;"
+    },
+    {
+      "symbol": "global_default_animation_colors",
+      "owner": "source/game/game_engine_king.c",
+      "declaration": "real_rgb_color global_default_animation_colors[4];"
+    },
+    {
+      "symbol": "global_default_animation_values",
+      "owner": "source/game/game_engine_king.c",
+      "declaration": "real global_default_animation_values[4];"
+    },
+    {
+      "symbol": "hs_global_data",
+      "owner": "source/hs/hs_runtime.c",
+      "declaration": "struct data_array *hs_global_data;"
+    },
+    {
+      "symbol": "hs_thread_data",
+      "owner": "source/hs/hs_runtime.c",
+      "declaration": "struct data_array *hs_thread_data;"
+    },
+    {
+      "symbol": "debug_scripting",
+      "owner": "source/hs/hs_runtime.c",
+      "declaration": "boolean debug_scripting;"
+    },
+    {
+      "symbol": "temporary_hud",
+      "owner": "source/interface/hud.c",
+      "declaration": "boolean temporary_hud;"
+    },
+    {
+      "symbol": "hud_msg_def",
+      "owner": "source/interface/hud_messaging.c",
+      "declaration": "struct hud_messaging_parameters_definition *hud_msg_def;"
+    },
+    {
+      "symbol": "blip_player_index",
+      "owner": "source/interface/motion_sensor.c",
+      "declaration": "short blip_player_index;"
+    },
+    {
+      "symbol": "center_point",
+      "owner": "source/interface/motion_sensor.c",
+      "declaration": "real_point2d center_point;"
+    },
+    {
+      "symbol": "blur_shader",
+      "owner": "source/interface/progress_bar.c",
+      "declaration": "struct pixel_shader_definition blur_shader;"
+    },
+    {
+      "symbol": "regular_shader",
+      "owner": "source/interface/progress_bar.c",
+      "declaration": "struct pixel_shader_definition regular_shader;"
+    },
+    {
+      "symbol": "current_time",
+      "owner": "source/interface/progress_bar.c",
+      "declaration": "unsigned long current_time;"
+    },
+    {
+      "symbol": "ui_plasma_effect_color",
+      "owner": "source/interface/ui_widget.c",
+      "declaration": "real_argb_color ui_plasma_effect_color;"
+    },
+    {
+      "symbol": "local_player_index_for_draw_string_and_hack_in_icons",
+      "owner": "source/interface/ui_widget.c",
+      "declaration": "short local_player_index_for_draw_string_and_hack_in_icons;"
+    },
+    {
+      "symbol": "cached_player_profile",
+      "owner": "source/interface/ui_widget_game_data_input_functions.c",
+      "declaration": "struct cached_player_profile_entry cached_player_profile[3];"
+    },
+    {
+      "symbol": "cached_variant_profile",
+      "owner": "source/interface/ui_widget_game_data_input_functions.c",
+      "declaration": "struct cached_variant_profile_entry cached_variant_profile[3];"
+    },
+    {
+      "symbol": "light_data",
+      "owner": "source/objects/object_lights.c",
+      "declaration": "struct data_array *light_data;"
+    },
+    {
+      "symbol": "light_cluster_partition",
+      "owner": "source/objects/object_lights.c",
+      "declaration": "struct cluster_partition light_cluster_partition;"
+    },
+    {
+      "symbol": "debug_rasterizer_light_count",
+      "owner": "source/objects/object_lights.c",
+      "declaration": "short debug_rasterizer_light_count;"
+    },
+    {
+      "symbol": "first_object_type_definition",
+      "owner": "source/objects/object_types.c",
+      "declaration": "struct object_type_definition *first_object_type_definition;"
+    },
+    {
+      "symbol": "node_count",
+      "owner": "source/physics/bsp3d.c",
+      "declaration": "long node_count;"
+    },
+    {
+      "symbol": "build_sprite_globals",
+      "owner": "source/render/render_sprite.c",
+      "declaration": "struct build_sprite_globals_data build_sprite_globals;"
+    },
+    {
+      "symbol": "sound_class_data",
+      "owner": "source/sound/sound_classes.c",
+      "declaration": "struct sound_class_runtime *sound_class_data;"
+    },
+    {
+      "symbol": "looping_sound_data",
+      "owner": "source/sound/sound_manager.c",
+      "declaration": "struct data_array *looping_sound_data;"
+    },
+    {
+      "symbol": "global_window_parameters",
+      "owner": "source/rasterizer/rasterizer.c",
+      "declaration": "struct rasterizer_window_begin_parameters global_window_parameters;"
+    },
+    {
+      "symbol": "global_d3d_caps",
+      "owner": "source/rasterizer/xbox/rasterizer_xbox.c",
+      "declaration": "D3DCAPS8 global_d3d_caps;"
+    },
+    {
+      "symbol": "renderstate_table",
+      "owner": "source/rasterizer/xbox/rasterizer_xbox.c",
+      "declaration": "unsigned long renderstate_table[D3DRS_MAX];"
+    },
+    {
+      "symbol": "texturestagestate_table",
+      "owner": "source/rasterizer/xbox/rasterizer_xbox.c",
+      "declaration": "unsigned long texturestagestate_table[D3DTSS_MAXSTAGES][D3DTSS_MAX];"
+    },
+    {
+      "symbol": "texture_table",
+      "owner": "source/rasterizer/xbox/rasterizer_xbox.c",
+      "declaration": "D3DBaseTexture *texture_table[D3DTSS_MAXSTAGES];"
+    },
+    {
+      "symbol": "window_globals",
+      "owner": "source/rasterizer/xbox/rasterizer_xbox.c",
+      "declaration": "struct window_data window_globals;"
+    },
+    {
+      "symbol": "pixel_shader",
+      "owner": "source/rasterizer/xbox/rasterizer_xbox_environment.c",
+      "declaration": "struct pixel_shader_definition pixel_shader;"
+    },
+    {
+      "symbol": "global_frame_parameters",
+      "owner": "source/rasterizer/xbox/rasterizer_xbox_plasma_energy.c",
+      "declaration": "struct rasterizer_frame_begin_parameters global_frame_parameters;"
+    },
+    {
+      "symbol": "global_address",
+      "owner": "source/bungie_net/network/transport_endpoint_set_winsock.c",
+      "declaration": "XNADDR global_address;"
+    },
+    {
+      "symbol": "global_key_id",
+      "owner": "source/bungie_net/network/transport_endpoint_set_winsock.c",
+      "declaration": "XNKID global_key_id;"
+    },
+    {
+      "symbol": "global_key",
+      "owner": "source/bungie_net/network/transport_endpoint_set_winsock.c",
+      "declaration": "XNKEY global_key;"
+    },
+    {
+      "symbol": "global_nonce",
+      "owner": "source/bungie_net/network/transport_endpoint_set_winsock.c",
+      "declaration": "byte global_nonce[TRANSPORT_NONCE_LENGTH];"
+    }
+  ]
+}
