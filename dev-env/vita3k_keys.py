@@ -5,7 +5,7 @@ import os, sys, time
 from Xlib import display as xdisplay
 from pynput.keyboard import Controller as Keyboard, Key
 from pynput.mouse import Button, Controller as Mouse
-os.environ.setdefault("DISPLAY", ":1")
+os.environ.setdefault("DISPLAY", ":0")
 SPECIAL = {"up": Key.up, "down": Key.down, "left": Key.left, "right": Key.right, "enter": Key.enter, "select": Key.shift_r}
 def render_window(disp):
     root = disp.screen().root
