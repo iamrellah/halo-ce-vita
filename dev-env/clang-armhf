@@ -1,0 +1,15 @@
+#!/bin/bash
+# The port's i686 Linux build graph retargeted to 32-bit ARM (armv7-a hard float, Cortex-A9 tuning like the Vita):
+# x86-only flags are dropped, the GNU toolchain's glibc sysroot is used, links are static.
+args=(); link=1
+for a in "$@"; do
+  case "$a" in
+    --target=i686-linux-gnu) args+=(--target=arm-none-linux-gnueabihf);;
+    -m32|-malign-double|-freg-struct-return|-march=native|-march=x86-64|-mtune=native) ;;
+    -c) link=0; args+=("$a");;
+    *) args+=("$a");;
+  esac
+done
+extra=(-DHALO_RELOCATABLE_TAG_CACHE=1 -fsigned-char -fmax-type-align=1 -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mthumb --gcc-toolchain=/home/birchwoodgod/toolchains/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-linux-gnueabihf --sysroot=/home/birchwoodgod/toolchains/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-linux-gnueabihf/arm-none-linux-gnueabihf/libc -Qunused-arguments -I/home/birchwoodgod/github/halo-ce-vita-spike/sdl3-armhf/include)
+if [ $link = 1 ]; then extra+=(-fuse-ld=lld -L/home/birchwoodgod/github/halo-ce-vita-spike/sdl3-armhf/lib); fi
+exec clang "${extra[@]}" "${args[@]}"

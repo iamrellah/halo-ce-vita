@@ -1,0 +1,3 @@
+#!/bin/sh
+# clang for the port's i686 Linux build with a locally built 32-bit SDL3
+exec clang -DHALO_RELOCATABLE_TAG_CACHE=1 -Qunused-arguments -I/home/birchwoodgod/github/halo-ce-vita-spike/sdl3-i686/include -L/home/birchwoodgod/github/halo-ce-vita-spike/sdl3-i686/lib -Wl,-rpath,/home/birchwoodgod/github/halo-ce-vita-spike/sdl3-i686/lib "$@"
