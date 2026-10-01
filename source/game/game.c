@@ -443,6 +443,7 @@ static unsigned long long tick_now(void) { return vita_host_time_us ? vita_host_
 static void tick_phase_begin(void) { if (tick_profile_enabled > 0) tick_phase_started = tick_now(); }
 static void tick_phase_end(int phase, const char *name)
 {
+	{ extern void debug_name_watch(const char *where); debug_name_watch(name); }
 	if (tick_profile_enabled < 0) { const char *e = getenv("HALO_TICK_PROFILE"); tick_profile_enabled = e && atoi(e) != 0; }
 	if (tick_profile_enabled <= 0) return;
 	tick_phase_us[phase] += tick_now() - tick_phase_started; tick_phase_name[phase] = name;

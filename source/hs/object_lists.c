@@ -152,6 +152,7 @@ void object_list_add(
 	long object_index)
 {
 	struct object_list_header_datum *list = object_list_header_get(object_list_index);
+	{ extern void debug_stack_log(const char *tag, long value); if (object_index == NONE || !DATUM_INDEX_TO_IDENTIFIER(object_index)) debug_stack_log("object_list_add bad", object_index); }
 	reference_list_add(object_list_data, &list->first_reference_index, object_index);
 	list->count++;
 

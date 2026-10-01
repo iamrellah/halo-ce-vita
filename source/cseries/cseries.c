@@ -362,6 +362,18 @@ char *csprintf(
 __thread boolean display_assert_skipped = FALSE;
 #endif
 
+void debug_stack_log(const char *tag, long value)
+{
+	extern void platform_log(const char *format, ...);
+	unsigned long *sp = (unsigned long *)__builtin_frame_address(0);
+	char text[1024];
+	int used = 0, i;
+	for (i = 0; i < 400 && used < 1000; i++)
+		if (sp[i] >= 0x81000000UL && sp[i] < 0x81340000UL && (sp[i] & 1))
+			used += snprintf(text + used, sizeof(text) - used, " %lx", sp[i]);
+	platform_log("DBG %s %08lx (from %p) stack:%s", tag, (unsigned long)value, __builtin_return_address(0), text);
+}
+
 void display_assert(
 	char *information,
 	char *file,
@@ -381,6 +393,19 @@ void display_assert(
 	}
 #endif
 	
+	{
+		extern void platform_log(const char *format, ...);
+		platform_log("EXCEPTION %s in %s,#%d: %s (from %p)", fatal ? "halt" : "warn", file, (int)line, information ? information : "<no reason given>", __builtin_return_address(0));
+		{
+			unsigned long *sp = (unsigned long *)__builtin_frame_address(0);
+			char text[1024];
+			int used = 0, i;
+			for (i = 0; i < 400 && used < 1000; i++)
+				if (sp[i] >= 0x81000000UL && sp[i] < 0x81340000UL && (sp[i] & 1))
+					used += snprintf(text + used, sizeof(text) - used, " %lx", sp[i]);
+			platform_log("EXCEPTION stack:%s", text);
+		}
+	}
 	error(_error_silent, "EXCEPTION %s in %s,#%d: %s", fatal ? "halt" : "warn", file, line, information ? information : "<no reason given>");
 #endif
 }

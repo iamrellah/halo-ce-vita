@@ -366,6 +366,7 @@ void object_set_object_index_for_name_index(
 {
 	if (VALID_INDEX(name_index, global_scenario_get()->object_names.count))
 	{
+		{ extern void debug_stack_log(const char *tag, long value); if (object_index != NONE && !DATUM_INDEX_TO_IDENTIFIER(object_index)) debug_stack_log("set_name bad", object_index | (name_index << 16)); }
 		object_name_list[name_index] = object_index;
 	}
 
@@ -1625,10 +1626,40 @@ short objects_in_clusters_by_indices(
 	return object_count;
 }
 
+void debug_name_watch(const char *where)
+{
+	extern void platform_log(const char *format, ...);
+	static long last_count = -1, last_none = -1;
+	long count = 0, none = 0, first = -1;
+	short i;
+	if (!object_name_list)
+		return;
+	for (i = 0; i < MAXIMUM_OBJECT_NAMES_PER_SCENARIO; i++)
+	{
+		long v = object_name_list[i];
+		if (v == NONE)
+			none++;
+		else if (!DATUM_INDEX_TO_IDENTIFIER(v))
+		{
+			if (first < 0)
+				first = i;
+			count++;
+		}
+	}
+	if (count != last_count || (none == MAXIMUM_OBJECT_NAMES_PER_SCENARIO) != (last_none == MAXIMUM_OBJECT_NAMES_PER_SCENARIO))
+		platform_log("DBG name watch: %ld zero-identifier entries (first %ld = %08lx), %ld NONE, after %s", count, first, first >= 0 ? (unsigned long)object_name_list[first] : 0UL, none, where);
+	last_count = count;
+	last_none = none;
+}
+
 long object_index_from_name_index(
 	short name_index)
 {
-	return name_index>=0 && name_index<MAXIMUM_OBJECT_NAMES_PER_SCENARIO ? object_name_list[name_index] : NONE;
+	long result;
+	{ extern void debug_name_watch(const char *where); debug_name_watch("from_name entry"); }
+	result = name_index>=0 && name_index<MAXIMUM_OBJECT_NAMES_PER_SCENARIO ? object_name_list[name_index] : NONE;
+	{ extern void debug_stack_log(const char *tag, long value); if (result != NONE && !DATUM_INDEX_TO_IDENTIFIER(result)) { extern void platform_log(const char *format, ...); platform_log("DBG from_name: name %d list %p value %08lx reread %08lx", (int)name_index, (void *)object_name_list, (unsigned long)result, (unsigned long)object_name_list[name_index]); debug_stack_log("from_name bad", result | ((long)name_index << 16)); } }
+	return result;
 }
 
 void objects_disconnect_from_structure_bsp(
@@ -4591,6 +4622,7 @@ static void object_name_list_new(
 
 	if (object_name_list[name_index]==NONE)
 	{
+		{ extern void debug_stack_log(const char *tag, long value); if (object_index != NONE && !DATUM_INDEX_TO_IDENTIFIER(object_index)) debug_stack_log("name_new bad", object_index | ((long)name_index << 16)); }
 		object_name_list[name_index] = object_index;
 		object->object.name_index = name_index;
 	}
