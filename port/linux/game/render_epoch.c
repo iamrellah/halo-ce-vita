@@ -543,7 +543,10 @@ void halo_epoch_discard(void)
 	{
 		if (!arrays[slot].data)
 			continue;
-		free(arrays[slot].marks);
+		/* (the C library's free, as calloc made them: cseries.h's free is
+		the tracked allocator's, and freeing these with it crashed the
+		second game state replacement - a revert after a death) */
+		(free)(arrays[slot].marks);
 		arrays[slot].marks = NULL;
 		arrays[slot].marked = 0;
 		arrays[slot].data = NULL;
