@@ -1,0 +1,14 @@
+name: Build
+
+# Builds are disabled for now: the game needs the Xbox SDK headers, which
+# this repository does not include. This placeholder runs only when started
+# manually and builds nothing.
+on:
+  workflow_dispatch:
+
+jobs:
+  disabled:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Builds disabled
+      run: echo "Builds are disabled for now."

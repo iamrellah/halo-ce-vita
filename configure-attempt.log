@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/home/birchwoodgod/xita-backups/2026-09-18-unified-games/private-references/halo-ce-universal/libs/d3d8/generate_sdk_overlay.py", line 62, in <module>
+    main()
+    ~~~~^^
+  File "/home/birchwoodgod/xita-backups/2026-09-18-unified-games/private-references/halo-ce-universal/libs/d3d8/generate_sdk_overlay.py", line 48, in main
+    original = SOURCE.read_bytes()
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/birchwoodgod/xita-backups/2026-09-18-unified-games/private-references/halo-ce-universal/xbox/include/D3D8.h'
+Traceback (most recent call last):
+  File "/home/birchwoodgod/xita-backups/2026-09-18-unified-games/private-references/halo-ce-universal/configure.py", line 186, in <module>
+    subprocess.run([sys.executable, "libs/d3d8/generate_sdk_overlay.py"], check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/usr/sbin/python3', 'libs/d3d8/generate_sdk_overlay.py']' returned non-zero exit status 1.
